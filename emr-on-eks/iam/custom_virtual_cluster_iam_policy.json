@@ -1,0 +1,51 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "emr-containers:DescribeVirtualCluster",
+                "emr-containers:DeleteVirtualCluster",
+                "emr-containers:CancelJobRun",
+                "emr-containers:DescribeJobRun",
+                "emr-containers:ListVirtualClusters",
+                "emr-containers:CreateVirtualCluster",
+                "emr-containers:ListJobRuns",
+                "emr-containers:StartJobRun"
+            ],
+            "Resource": "*"
+        },
+		{
+            "Sid": "VisualEditor1",
+            "Effect": "Allow",
+            "Action": [
+				"elasticmapreduce:CreateEditor",
+				"elasticmapreduce:DescribeEditor",
+				"elasticmapreduce:ListEditors",
+				"elasticmapreduce:StartEditor",
+				"elasticmapreduce:StopEditor",
+				"elasticmapreduce:DeleteEditor",
+				"elasticmapreduce:OpenEditorInConsole",
+				"elasticmapreduce:AttachEditor",
+				"elasticmapreduce:DetachEditor",
+				"elasticmapreduce:CreateRepository",
+				"elasticmapreduce:DescribeRepository",
+				"elasticmapreduce:DeleteRepository",
+				"elasticmapreduce:ListRepositories",
+				"elasticmapreduce:LinkRepository",
+				"elasticmapreduce:UnlinkRepository",
+				"elasticmapreduce:DescribeCluster",
+				"elasticmapreduce:ListInstanceGroups",
+				"elasticmapreduce:ListBootstrapActions",
+				"elasticmapreduce:ListClusters",
+				"elasticmapreduce:ListSteps",
+				"elasticmapreduce:CreatePersistentAppUI",
+				"elasticmapreduce:DescribePersistentAppUI",
+				"elasticmapreduce:GetPersistentAppUIPresignedURL",
+				"elasticmapreduce:GetOnClusterAppUIPresignedURL"
+            ],
+            "Resource": "*"
+        }
+    ]
+}

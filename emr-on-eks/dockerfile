@@ -1,0 +1,5 @@
+FROM 711395599931.dkr.ecr.us-east-2.amazonaws.com/spark/emr-6.3.0:latest
+USER root
+### Add customizations here ####
+RUN pip3 install --no-cache-dir pyspark pandas
+USER hadoop:hadoop

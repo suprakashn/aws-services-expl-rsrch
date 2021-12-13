@@ -1,0 +1,53 @@
+---
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+metadata:
+  name: 2482-EKS-Fargate-Cluster
+  region: us-east-2
+  version: "1.21"
+
+#vpc:
+#  id: "vpc-0e7c1544554ffe03a"
+#  subnets:
+#    private:
+#      us-east-2a:
+#        id: "subnet-064de8d2910ae66e7"
+#      us-east-2c:
+#        id: "subnet-09254e96785af5687"
+
+nodeGroups:
+  - name: node-group-1
+    labels:
+      role: node-group-1
+    instanceType: m5.large
+    minSize: 1
+    maxSize: 10
+    desiredCapacity: 1
+    volumeSize: 20
+    
+  - name: node-group-2
+    labels:
+      role: node-group-2
+    instanceType: m5.large
+    minSize: 1
+    maxSize: 10
+    desiredCapacity: 1
+    volumeSize: 20
+  
+fargateProfiles:
+  - name: fp-default
+    selectors:
+      # All workloads in the "default" Kubernetes namespace will be
+      # scheduled onto Fargate:
+      - namespace: default
+      # All workloads in the "kube-system" Kubernetes namespace will be
+      # scheduled onto Fargate:
+      - namespace: kube-system
+  - name: fp-dev
+    selectors:
+      # All workloads in the "dev" Kubernetes namespace matching the following
+      # label selectors will be scheduled onto Fargate:
+      - namespace: dev
+        labels:
+          env: dev
+          checks: passed

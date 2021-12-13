@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": "eks:*",
+            "Resource": "*"
+        },
+		{
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateServiceLinkedRole"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "StringLike": {
+                    "iam:AWSServiceName": "emr-containers.amazonaws.com"
+                }
+            }
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "emr-containers:CreateVirtualCluster",
+                "emr-containers:ListVirtualClusters",
+                "emr-containers:DescribeVirtualCluster",
+                "emr-containers:DeleteVirtualCluster"
+            ],
+            "Resource": "*"
+        },
+		{
+            "Effect": "Allow",
+            "Action": [
+                "emr-containers:StartJobRun",
+                "emr-containers:ListJobRuns",
+                "emr-containers:DescribeJobRun",
+                "emr-containers:CancelJobRun"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
